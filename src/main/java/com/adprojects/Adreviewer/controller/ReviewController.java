@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/review")
 public class ReviewController {
-    @Autowired
-    ReviewService reviewService;
+
+      ReviewService reviewService;
+
+    public ReviewController(ReviewService reviewService) {
+        this.reviewService = reviewService;
+    }
 
     @PostMapping("/add")
     public void addReview(@RequestBody ReviewRequest reviewRequest){

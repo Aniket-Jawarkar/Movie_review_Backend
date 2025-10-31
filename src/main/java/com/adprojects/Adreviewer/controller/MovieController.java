@@ -12,8 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
-    @Autowired
+
     MovieService movieService;
+
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping("/title")
     public MovieResponse findMovie(@RequestParam  String title){

@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
     private AdminService adminService;
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
+
+
 
     @PostMapping("movie/add")
     public ResponseEntity<MovieResponse> addMovie(@RequestBody MovieRequest movieRequest){
